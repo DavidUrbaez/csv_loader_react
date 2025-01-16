@@ -4,9 +4,11 @@
   "private": true,
   "dependencies": {
     "cra-template": "1.2.0",
+    "papaparse": "^5.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "^3.0.1"
+    "react-scripts": "^3.0.1",
+    "recharts": "^2.15.0"
   },
   "scripts": {
     "predeploy": "set NODE_OPTIONS=--openssl-legacy-provider && npm run build",
@@ -37,5 +39,5 @@
   "devDependencies": {
     "gh-pages": "^6.3.0"
   },
-  "homepage": "https://davidurbaez.github.io/ReactLearning"
+  "homepage": "https://davidurbaez.github.io/csv_loader_react"
 }
