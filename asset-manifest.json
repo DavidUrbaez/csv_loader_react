@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/csv_loader_react/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/csv_loader_react/static/js/main.7d5abcc4.chunk.js",
+    "main.js.map": "/csv_loader_react/static/js/main.7d5abcc4.chunk.js.map",
+    "runtime~main.js": "/csv_loader_react/static/js/runtime~main.44c441e2.js",
+    "runtime~main.js.map": "/csv_loader_react/static/js/runtime~main.44c441e2.js.map",
+    "static/js/2.c20ab8ae.chunk.js": "/csv_loader_react/static/js/2.c20ab8ae.chunk.js",
+    "static/js/2.c20ab8ae.chunk.js.map": "/csv_loader_react/static/js/2.c20ab8ae.chunk.js.map",
+    "index.html": "/csv_loader_react/index.html",
+    "precache-manifest.0e526664a835e281892a295dd81664bf.js": "/csv_loader_react/precache-manifest.0e526664a835e281892a295dd81664bf.js",
+    "service-worker.js": "/csv_loader_react/service-worker.js",
+    "static/css/main.5ecd60fb.chunk.css.map": "/csv_loader_react/static/css/main.5ecd60fb.chunk.css.map"
+  }
+}
