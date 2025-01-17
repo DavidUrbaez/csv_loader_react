@@ -53,6 +53,20 @@ const ScatterPlotComponent = () => {
     }
   };
 
+  // Function to check if a point is inside the square
+  const isPointInSquare = (point) => {
+    return (
+      point.x >= squareX - squareSize &&
+      point.x <= squareX + squareSize &&
+      point.y >= squareY - squareSize &&
+      point.y <= squareY + squareSize
+    );
+  };
+
+  // Separate points inside and outside the square
+  const pointsInside = data.filter(point => isPointInSquare(point));
+  const pointsOutside = data.filter(point => !isPointInSquare(point));
+
   // Generate the square reference lines
   const squareLines = [
     // Bottom horizontal line
@@ -113,6 +127,13 @@ const ScatterPlotComponent = () => {
       justifyContent: 'space-between',
       alignItems: 'center',
       marginBottom: '5px'
+    },
+    stats: {
+      textAlign: 'center',
+      margin: '10px 0',
+      padding: '10px',
+      backgroundColor: '#f5f5f5',
+      borderRadius: '5px'
     }
   };
 
@@ -159,34 +180,45 @@ const ScatterPlotComponent = () => {
       </div>
 
       {data.length > 0 && (
-        <div style={{ height: '400px', width: '100%' }}>
-          <ResponsiveContainer>
-            <ScatterChart
-              margin={{
-                top: 20,
-                right: 20,
-                bottom: 20,
-                left: 20,
-              }}
-            >
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis type="number" dataKey="x" domain={['auto', 'auto']} />
-              <YAxis type="number" dataKey="y" domain={['auto', 'auto']} />
-              <Tooltip />
-              <Scatter data={data} fill="#4a90e2" />
+        <>
+          <div style={styles.stats}>
+            Points inside square: {pointsInside.length} / {data.length}
+          </div>
 
-              {/* Draw the square */}
-              {squareLines.map((line, index) => (
-                <ReferenceLine
-                  key={index}
-                  segment={line}
-                  stroke="red"
-                  strokeWidth={2}
-                />
-              ))}
-            </ScatterChart>
-          </ResponsiveContainer>
-        </div>
+          <div style={{ height: '400px', width: '100%' }}>
+            <ResponsiveContainer>
+              <ScatterChart
+                margin={{
+                  top: 20,
+                  right: 20,
+                  bottom: 20,
+                  left: 20,
+                }}
+              >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis type="number" dataKey="x" domain={['auto', 'auto']} />
+                <YAxis type="number" dataKey="y" domain={['auto', 'auto']} />
+                <Tooltip />
+
+                {/* Points outside the square (blue) */}
+                <Scatter data={pointsOutside} fill="#4a90e2" />
+
+                {/* Points inside the square (green) */}
+                <Scatter data={pointsInside} fill="#4CAF50" />
+
+                {/* Draw the square */}
+                {squareLines.map((line, index) => (
+                  <ReferenceLine
+                    key={index}
+                    segment={line}
+                    stroke="red"
+                    strokeWidth={2}
+                  />
+                ))}
+              </ScatterChart>
+            </ResponsiveContainer>
+          </div>
+        </>
       )}
     </div>
   );

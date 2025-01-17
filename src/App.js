@@ -1,14 +1,14 @@
 import React from 'react';
-import ScatterPlotComponent from './components/ScatterPlotComponent_pretty_with_sliders';
+import InteractivePolygonComponent from './components/InteractivePolygonComponent';
 
 function App() {
   return (
     <div style={{ backgroundColor: '#f3f4f6', minHeight: '100vh', padding: '20px' }}>
       <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
         <h1 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '20px' }}>
-          Data Visualizer
+          Interactive Polygon Generator
         </h1>
-        <ScatterPlotComponent />
+        <InteractivePolygonComponent />
       </div>
     </div>
   );
