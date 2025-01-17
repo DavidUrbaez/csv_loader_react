@@ -1,5 +1,5 @@
 import React from 'react';
-import ScatterPlotComponent from './components/ScatterPlotComponent';
+import ScatterPlotComponent from './components/ScatterPlotComponent_pretty_with_sliders';
 
 function App() {
   return (
