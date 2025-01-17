@@ -12,12 +12,10 @@ import {
 
 const ScatterPlotComponent = () => {
   const [data, setData] = useState([]);
-  const [fileName, setFileName] = useState('');
 
   const handleFileUpload = (event) => {
     const file = event.target.files[0];
     if (file) {
-      setFileName(file.name);
       const reader = new FileReader();
       reader.onload = (e) => {
         Papa.parse(e.target.result, {
@@ -35,53 +33,14 @@ const ScatterPlotComponent = () => {
     }
   };
 
-  const fileInputStyles = {
-    container: {
-      marginBottom: '20px',
-      display: 'flex',
-      justifyContent: 'center'
-    },
-    label: {
-      padding: '10px 20px',
-      backgroundColor: '#4a90e2',
-      color: 'white',
-      borderRadius: '5px',
-      cursor: 'pointer',
-      transition: 'background-color 0.3s',
-      display: 'inline-block',
-      textAlign: 'center',
-      boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-    },
-    input: {
-      display: 'none'
-    },
-    fileName: {
-      marginTop: '10px',
-      color: '#666',
-      fontSize: '14px',
-      textAlign: 'center'
-    }
-  };
-
   return (
     <div style={{ backgroundColor: 'white', padding: '20px', borderRadius: '8px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
-      <div style={fileInputStyles.container}>
-        <div>
-          <label style={fileInputStyles.label}>
-            Choose CSV File
-            <input
-              type="file"
-              accept=".csv"
-              onChange={handleFileUpload}
-              style={fileInputStyles.input}
-            />
-          </label>
-          {fileName && (
-            <div style={fileInputStyles.fileName}>
-              Selected file: {fileName}
-            </div>
-          )}
-        </div>
+      <div style={{ marginBottom: '20px' }}>
+        <input
+          type="file"
+          accept=".csv"
+          onChange={handleFileUpload}
+        />
       </div>
 
       {data.length > 0 && (
@@ -99,7 +58,7 @@ const ScatterPlotComponent = () => {
               <XAxis type="number" dataKey="x" />
               <YAxis type="number" dataKey="y" />
               <Tooltip />
-              <Scatter data={data} fill="#4a90e2" />
+              <Scatter data={data} fill="#8884d8" />
             </ScatterChart>
           </ResponsiveContainer>
         </div>
